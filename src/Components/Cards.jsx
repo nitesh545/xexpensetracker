@@ -14,11 +14,8 @@ export default function BalanceCard(props) {
 
 	return (
 		<Card sx={{
-			// backgroundColor: '#00000040',
 			backgroundColor: 'rgba(155, 155, 155, 1)',
-			// width: 400,
-			// height: 200,
-			width: '29vw',
+			width: '25vw',
 			height: '20vh',
 			borderRadius: 10,
 			alignContent: 'center',
@@ -26,13 +23,14 @@ export default function BalanceCard(props) {
 			alignItems: 'center',
 			display: 'flex',
 			flexDirection: 'column',
+			m: '1rem'
 		}}>
 			<Box sx={{display: 'flex'}}>
 				<Typography variant="h4" color='white' align='right'>{inText} &nbsp;</Typography>
 				<Typography variant="h4" color={textColor} align='cennter'>₹{value}</Typography>
 			</Box>
 			<Button variant='contained'
-					sx={{backgroundColor: color, margin: '1rem'}}
+					sx={{backgroundColor: color, margin: '1rem', borderRadius: '1rem'}}
 					onClick={() => {
 						if (props.Balance) {
 							props.handleShowBalanceForm();

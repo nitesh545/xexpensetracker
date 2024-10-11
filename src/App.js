@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {useEffect, useState} from "react";
-import {Grid2, Typography, Button, Card, TextField, Select, MenuItem, Box, Container,} from "@mui/material";
+import {Grid2, Typography, Button, Card, TextField, Select, MenuItem, Box, Container, Modal,} from "@mui/material";
 import {DemoContainer} from '@mui/x-date-pickers/internals/demo';
 import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
 import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
@@ -47,6 +47,10 @@ function App() {
 
 	const updateExpenseFormTitle = (e) => {
 		setExpenseForm({...expenseForm, title: e.target.value});
+	}
+
+	const updateExpenseFormPrice = (e) => {
+		setExpenseForm({...expenseForm, price: Number(e.target.value)});
 	}
 
 	const updateExpenseFormDate = (value) => {
@@ -138,7 +142,7 @@ function App() {
 
 	return (
 		<div style={{backgroundColor: 'rgba(59, 59, 59, 1)'}}>
-			<Typography variant="h1" color='#FFFFFF' sx={{padding: '1rem'}}>Expense Tracker</Typography>
+			<Typography variant="h3" color='#FFFFFF' sx={{padding: '1rem'}}>Expense Tracker</Typography>
 			<Card sx={{
 				backgroundColor: 'rgba(98, 98, 98, 1)',
 				width: "95vw",
@@ -155,6 +159,7 @@ function App() {
 					<Grid2 item xs={4}>
 						<Cards Expense balexp={balexp} handleShowExpenseForm={handleShowExpenseForm}/>
 					</Grid2>
+
 					<Grid2 item xs={4}>
 						{/*<Card sx={{backgroundColor: '#D9D9D9'}}>*/}
 						{/*	<PieChart series={[*/}
@@ -170,19 +175,16 @@ function App() {
 					</Grid2>
 				</Grid2>
 			</Card>
-			{
-				balanceForm.showForm && (
-					<BalanceForm updateBalanceForm={updateBalanceForm} handleAddBalance={handleAddBalance}
-								 handleHideBalanceForm={handleHideBalanceForm}/>
-				)
-			}
-			{
-				expenseForm.showForm && (
-					<ExpenseForm updateExpenseFormTitle={updateExpenseFormTitle} handleAddExpense={handleAddExpense}
-								 handleHideExpenseForm={handleHideExpenseForm} handleSelectCategory={handleSelectCategory}
-								 expenseForm={expenseForm} updateExpenseFormDate={updateExpenseFormDate}/>
-				)
-			}
+			<Modal open={balanceForm.showForm} onClose={handleHideBalanceForm} sx={{justifyContent: 'center'}}>
+				<BalanceForm updateBalanceForm={updateBalanceForm} handleAddBalance={handleAddBalance}
+							 handleHideBalanceForm={handleHideBalanceForm}/>
+			</Modal>
+			<Modal open={expenseForm.showForm} onClose={handleHideExpenseForm}>
+				<ExpenseForm updateExpenseFormTitle={updateExpenseFormTitle} handleAddExpense={handleAddExpense}
+							 handleHideExpenseForm={handleHideExpenseForm} handleSelectCategory={handleSelectCategory}
+							 expenseForm={expenseForm} updateExpenseFormDate={updateExpenseFormDate}
+							 updateExpenseFormPrice={updateExpenseFormPrice}/>
+			</Modal>
 			<Grid2 container spacing={8} sx={{margin: '2rem'}}>
 				{/*<RecentTransactions/>*/}
 				{/*<ExpenseTrend/>*/}
