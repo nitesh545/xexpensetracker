@@ -137,10 +137,10 @@ function App() {
 	}
 
 	return (
-		<div style={{backgroundColor: '#3B3B3B'}}>
+		<div style={{backgroundColor: 'rgba(59, 59, 59, 1)'}}>
 			<Typography variant="h1" color='#FFFFFF' sx={{padding: '1rem'}}>Expense Tracker</Typography>
 			<Card sx={{
-				backgroundColor: '#00000040',
+				backgroundColor: 'rgba(98, 98, 98, 1)',
 				width: "95vw",
 				height: 250,
 				ml: '2rem',

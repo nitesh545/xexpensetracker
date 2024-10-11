@@ -14,7 +14,8 @@ export default function BalanceCard(props) {
 
 	return (
 		<Card sx={{
-			backgroundColor: '#00000040',
+			// backgroundColor: '#00000040',
+			backgroundColor: 'rgba(155, 155, 155, 1)',
 			// width: 400,
 			// height: 200,
 			width: '29vw',
