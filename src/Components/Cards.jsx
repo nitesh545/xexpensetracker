@@ -16,8 +16,8 @@ export default function BalanceCard(props) {
 		<Card sx={{
 			backgroundColor: 'rgba(155, 155, 155, 1)',
 			width: '25vw',
-			height: '20vh',
-			borderRadius: 10,
+			height: '22vh',
+			borderRadius: 5,
 			alignContent: 'center',
 			justifyContent: 'center',
 			alignItems: 'center',

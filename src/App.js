@@ -141,14 +141,15 @@ function App() {
 	}
 
 	return (
-		<div style={{backgroundColor: 'rgba(59, 59, 59, 1)'}}>
-			<Typography variant="h3" color='#FFFFFF' sx={{padding: '1rem'}}>Expense Tracker</Typography>
+		<div style={{backgroundColor: 'rgba(59, 59, 59, 1)', height: '100vh'}}>
+			<Typography variant="h3" color='#FFFFFF' sx={{padding: '1.8rem'}} fontWeight='bold'>Expense
+				Tracker</Typography>
 			<Card sx={{
 				backgroundColor: 'rgba(98, 98, 98, 1)',
 				width: "95vw",
-				height: 250,
+				height: 310,
 				ml: '2rem',
-				borderRadius: 10,
+				borderRadius: 5,
 				justifyContent: 'center',
 				alignContent: 'center',
 			}}>
@@ -161,17 +162,18 @@ function App() {
 					</Grid2>
 
 					<Grid2 item xs={4}>
-						{/*<Card sx={{backgroundColor: '#D9D9D9'}}>*/}
-						{/*	<PieChart series={[*/}
-						{/*		{*/}
-						{/*			data: [*/}
-						{/*				{id: 0, value: totalExpensesFood(), label: 'Food'},*/}
-						{/*				{id: 1, value: totalExpensesEntertainment(), label: 'Entertainment'},*/}
-						{/*				{id: 2, value: totalExpensesTravel(), label: 'Travel'},*/}
-						{/*			],*/}
-						{/*		},*/}
-						{/*	]} width={400} height={200}/>*/}
-						{/*</Card>*/}
+						<Card sx={{backgroundColor: '#D9D9D900', margin: '1rem 0rem 1rem 4rem', borderRadius: '1rem'}}
+							  elevation={0}>
+							<PieChart series={[
+								{
+									data: [
+										{id: 0, value: totalExpensesFood(), label: 'Food'},
+										{id: 1, value: totalExpensesEntertainment(), label: 'Entertainment'},
+										{id: 2, value: totalExpensesTravel(), label: 'Travel'},
+									],
+								},
+							]} width={400} height={200}/>
+						</Card>
 					</Grid2>
 				</Grid2>
 			</Card>
