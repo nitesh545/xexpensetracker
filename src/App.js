@@ -11,7 +11,8 @@ import {BarChart} from '@mui/x-charts/BarChart';
 import BalanceForm from "./Components/BalanceForm";
 import ExpenseForm from "./Components/ExpenseForm";
 import Cards from "./Components/Cards"
-// import RecentTransactions from "./Components/RecentTransactions";
+import RecentTransactions from "./Components/RecentTransactions";
+
 // import ExpenseTrend from "./Components/ExpenseTrend";
 
 function App() {
@@ -54,8 +55,15 @@ function App() {
 	}
 
 	const updateExpenseFormDate = (value) => {
-		let valueToString = value.$d.toString().split(' ').slice(1, 4).join(' ');
-		setExpenseForm({...expenseForm, date: valueToString});
+		// let valueToString = value.toString().split(' ').slice(1, 4).join(' ');
+		const d = new Date(value);
+		const formattedDate = d.toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		});
+		console.log(formattedDate);
+		setExpenseForm({...expenseForm, date: formattedDate});
 	}
 
 	const handleShowBalanceForm = () => {
@@ -188,7 +196,9 @@ function App() {
 							 updateExpenseFormPrice={updateExpenseFormPrice}/>
 			</Modal>
 			<Grid2 container spacing={8} sx={{margin: '2rem'}}>
-				{/*<RecentTransactions/>*/}
+				<RecentTransactions allExpenses={allExpenses} handleDeleteExpense={handleDeleteExpense}
+									handleShowExpenseForm={handleShowExpenseForm}
+									handleEditExpenses={handleEditExpenses}/>
 				{/*<ExpenseTrend/>*/}
 			</Grid2>
 		</div>

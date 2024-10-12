@@ -9,7 +9,7 @@ export default function BalanceForm(props) {
 			left: '50%',
 			transform: 'translate(-50%, -50%)',
 			width: 600,
-			backgroundColor: 'rgba(239, 239, 239, 0.85)',
+			backgroundColor: 'rgba(239, 239, 239, 0.95)',
 			boxShadow: 24,
 			p: 2,
 			borderRadius: 10,

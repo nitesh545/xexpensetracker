@@ -14,7 +14,7 @@ export default function ExpenseForm(props) {
 			transform: 'translate(-50%, -50%)',
 			width: 800,
 			height: 400,
-			backgroundColor: 'rgba(239, 239, 239, 0.85)',
+			backgroundColor: 'rgba(239, 239, 239, 0.95)',
 			boxShadow: 24,
 			p: 2,
 			borderRadius: 10,
@@ -57,7 +57,9 @@ export default function ExpenseForm(props) {
 						{/*		}}/>*/}
 						{/*	</DemoContainer>*/}
 						{/*</LocalizationProvider>*/}
-						<TextField type="date" placeholder={'dd/mm/yy'} sx={{width: '100%'}}></TextField>
+						<TextField type="date" placeholder={'dd/mm/yy'} sx={{width: '100%'}} onChange={(e) => {
+							props.updateExpenseFormDate(e.target.value);
+						}}></TextField>
 					</Grid2>
 					<Grid2 size={6}>
 						<Button variant="contained" onClick={() => {
