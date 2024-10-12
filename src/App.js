@@ -1,13 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
-import {useEffect, useState} from "react";
-import {Grid2, Typography, Button, Card, TextField, Select, MenuItem, Box, Container, Modal,} from "@mui/material";
-import {DemoContainer} from '@mui/x-date-pickers/internals/demo';
-import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
-import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
-import {DatePicker} from '@mui/x-date-pickers/DatePicker';
+import {useState} from "react";
+import {Card, Grid2, Modal, Typography,} from "@mui/material";
 import {PieChart} from '@mui/x-charts/PieChart';
-import {BarChart} from '@mui/x-charts/BarChart';
 import BalanceForm from "./Components/BalanceForm";
 import ExpenseForm from "./Components/ExpenseForm";
 import Cards from "./Components/Cards"
@@ -87,7 +81,7 @@ function App() {
 		handleHideBalanceForm();
 	};
 
-	const handleAddExpense = () => {
+	const handleAddExpense = (index) => {
 		if (balexp.balance - expenseForm.price < 0) {
 			alert("not enough balance");
 			return;
@@ -126,8 +120,7 @@ function App() {
 
 	const totalExpensesFood = () => {
 		let exp = allExpenses.filter((expense, ind) => expense.category === 'food');
-		let totalExp = exp.reduce((total, x) => total += x.price, 0);
-		return totalExp;
+		return exp.reduce((total, x) => total += x.price, 0);
 	}
 
 	const totalExpensesEntertainment = () => {

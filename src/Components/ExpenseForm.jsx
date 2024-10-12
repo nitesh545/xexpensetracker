@@ -50,13 +50,6 @@ export default function ExpenseForm(props) {
 						</Select>
 					</Grid2>
 					<Grid2 size={6}>
-						{/*<LocalizationProvider dateAdapter={AdapterDayjs}>*/}
-						{/*	<DemoContainer components={['DatePicker']}>*/}
-						{/*		<DatePicker label="mm/dd/yyyy" onChange={(value) => {*/}
-						{/*			props.updateExpenseFormDate(value);*/}
-						{/*		}}/>*/}
-						{/*	</DemoContainer>*/}
-						{/*</LocalizationProvider>*/}
 						<TextField type="date" placeholder={'dd/mm/yy'} sx={{width: '100%'}} onChange={(e) => {
 							props.updateExpenseFormDate(e.target.value);
 						}}></TextField>
@@ -75,7 +68,7 @@ export default function ExpenseForm(props) {
 					</Grid2>
 					<Grid2 size={6}>
 						<Button variant="contained" onClick={() => {
-							props.handleHideExpenseForm()
+							props.handleHideExpenseForm();
 						}} sx={{
 							margin: '1rem',
 							backgroundColor: 'rgba(227, 227, 227, 1)',
