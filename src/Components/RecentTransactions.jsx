@@ -27,7 +27,7 @@ export default function RecentTransactions(props) {
 				display: 'flex',
 				justifyContent: 'space-between',
 				flexDirection: 'column',
-				width: '60vw',
+				width: '55vw',
 			}}>
 			<Typography variant='h4' sx={{fontStyle: 'italic', fontWeight: 'bold', color: 'white'}}>Recent
 				Transactions</Typography>

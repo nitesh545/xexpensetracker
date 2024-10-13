@@ -6,8 +6,7 @@ import BalanceForm from "./Components/BalanceForm";
 import ExpenseForm from "./Components/ExpenseForm";
 import Cards from "./Components/Cards";
 import RecentTransactions from "./Components/RecentTransactions";
-
-// import ExpenseTrend from "./Components/ExpenseTrend";
+import ExpenseTrend from "./Components/ExpenseTrend";
 
 function App() {
 	let balanceVal = JSON.parse(localStorage.getItem("balexp")).balance;
@@ -221,11 +220,13 @@ function App() {
 							 expenseForm={expenseForm} updateExpenseFormDate={updateExpenseFormDate}
 							 updateExpenseFormPrice={updateExpenseFormPrice}/>
 			</Modal>
-			<Grid2 container spacing={8} sx={{margin: '2rem'}}>
+			<Grid2 container spacing={2} sx={{margin: '2rem'}}>
 				<RecentTransactions allExpenses={allExpenses} handleDeleteExpense={handleDeleteExpense}
 									handleShowExpenseForm={handleShowExpenseForm}
 									handleEditExpenses={handleEditExpenses}/>
-				{/*<ExpenseTrend/>*/}
+				<ExpenseTrend totalExpensesFood={totalExpensesFood}
+							  totalExpensesEntertainment={totalExpensesEntertainment}
+							  totalExpensesTravel={totalExpensesTravel}/>
 			</Grid2>
 		</div>
 	);
