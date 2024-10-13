@@ -30,6 +30,7 @@ export default function BalanceForm(props) {
 					Balance</Button>
 				<Button variant="contained" onClick={() => {
 					props.handleHideBalanceForm();
+					// props.persistence();
 				}} sx={{
 					margin: '1rem',
 					backgroundColor: 'rgba(227, 227, 227, 1)',

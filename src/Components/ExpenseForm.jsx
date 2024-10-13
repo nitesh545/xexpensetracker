@@ -56,7 +56,8 @@ export default function ExpenseForm(props) {
 					</Grid2>
 					<Grid2 size={6}>
 						<Button variant="contained" onClick={() => {
-							props.handleAddExpense()
+							props.handleAddExpense();
+							// props.persistence();
 						}} sx={{
 							margin: '1rem',
 							backgroundColor: 'rgba(244, 187, 74, 1)',

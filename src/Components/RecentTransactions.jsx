@@ -87,6 +87,7 @@ export default function RecentTransactions(props) {
 									}}>₹{expense.price}</Typography>
 									<IconButton variant="contained" onClick={() => {
 										props.handleDeleteExpense(index);
+										// props.persistence();
 									}} sx={{
 										padding: '0.5rem',
 										margin: '0.6rem',
@@ -100,6 +101,7 @@ export default function RecentTransactions(props) {
 									<IconButton variant="contained" onClick={() => {
 										props.handleShowExpenseForm();
 										props.handleEditExpenses(index);
+										// props.persistence();
 									}} sx={{
 										padding: '0.5rem',
 										margin: '0.6rem',

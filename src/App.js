@@ -1,18 +1,22 @@
 import './App.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Card, Grid2, Modal, Typography,} from "@mui/material";
 import {PieChart} from '@mui/x-charts/PieChart';
 import BalanceForm from "./Components/BalanceForm";
 import ExpenseForm from "./Components/ExpenseForm";
-import Cards from "./Components/Cards"
+import Cards from "./Components/Cards";
 import RecentTransactions from "./Components/RecentTransactions";
 
 // import ExpenseTrend from "./Components/ExpenseTrend";
 
 function App() {
+	let balanceVal = JSON.parse(localStorage.getItem("balexp")).balance;
+	let expenseVal = JSON.parse(localStorage.getItem("balexp")).expense;
+	let allExpensesList = JSON.parse(localStorage.getItem("allExpenses"));
+
 	const [balexp, setBalexp] = useState({
-		balance: 5000,
-		expense: 0,
+		balance: balanceVal ? balanceVal : 5000,
+		expense: expenseVal ? expenseVal : 0,
 	});
 
 	const [expenseForm, setExpenseForm] = useState({
@@ -28,13 +32,37 @@ function App() {
 		showForm: false,
 	});
 
-	const [allExpenses, setAllExpenses] = useState([]);
+	const [allExpenses, setAllExpenses] = useState(allExpensesList ? allExpensesList : []);
 
 	const [totalExpenses, setTotalExpenses] = useState({
 		food: 0,
 		entertainment: 0,
 		travel: 0,
 	});
+
+	useEffect(() => {
+		// localStorage.setItem('allExpenses', JSON.Stringify(allExpenses));
+		// if (localStorage.getItem("allExpenses") == true) {
+		// 	if (localStorage.getItem('allExpenses').length !== allExpenses.length) {
+		// 		setAllExpenses(JSON.parse(localStorage.getItem('allExpenses')));
+		// 	}
+		// }
+		// if (localStorage.getItem("balexp") == true) {
+		// 	if (JSON.parse(localStorage.getItem('balexp')).balance !== balexp.balance) {
+		// 		setBalexp({...balexp, balance: JSON.parse(localStorage.getItem('balexp')).balance});
+		// 	}
+		// 	if (JSON.parse(localStorage.getItem('balexp')).balance !== balexp.expense) {
+		// 		setBalexp({...balexp, expense: JSON.parse(localStorage.getItem('balexp')).expense});
+		// 	}
+		// }
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem('allExpenses', JSON.stringify(allExpenses));
+	}, [allExpenses]);
+	useEffect(() => {
+		localStorage.setItem('balexp', JSON.stringify(balexp));
+	}, [balexp]);
 
 	const updateBalanceForm = (e) => {
 		setBalanceForm({...balanceForm, incomeAmount: Number(e.target.value)});
@@ -139,6 +167,11 @@ function App() {
 		totalExpensesFood();
 		totalExpensesEntertainment();
 		totalExpensesTravel();
+	}
+
+	const persistence = () => {
+		localStorage.setItem('allExpenses', JSON.stringify(allExpenses));
+		localStorage.setItem('balexp', JSON.stringify(balexp));
 	}
 
 	return (
