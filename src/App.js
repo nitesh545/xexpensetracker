@@ -9,8 +9,8 @@ import RecentTransactions from "./Components/RecentTransactions";
 import ExpenseTrend from "./Components/ExpenseTrend";
 
 function App() {
-	let balanceVal = JSON.parse(localStorage.getItem("balexp")).balance;
-	let expenseVal = JSON.parse(localStorage.getItem("balexp")).expense;
+	let balanceVal = JSON.parse(localStorage.getItem("balexp")) ? JSON.parse(localStorage.getItem("balexp")).balance : 0;
+	let expenseVal = JSON.parse(localStorage.getItem("balexp")) ? JSON.parse(localStorage.getItem("balexp")).expense : 0;
 	let allExpensesList = JSON.parse(localStorage.getItem("allExpenses"));
 
 	const [balexp, setBalexp] = useState({
